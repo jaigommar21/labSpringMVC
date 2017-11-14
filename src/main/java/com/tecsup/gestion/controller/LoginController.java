@@ -76,6 +76,5 @@ public class LoginController {
 		return modelAndView;
 	}
 	
-	
 
 }
