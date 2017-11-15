@@ -22,7 +22,7 @@
 			<div class="col-md-4">
 				<h4 class="text-center">User Login</h4>
 				<hr>
-				<form:form method="post" action="login" modelAttribute="credential">
+				<form:form method="post" servletRelativeAction="/login" modelAttribute="credential">
 					<div class="form-group">
 						<label for="login">Login: </label>
 						<form:input path="login" class="form-control" />

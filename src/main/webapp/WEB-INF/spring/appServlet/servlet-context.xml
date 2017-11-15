@@ -27,7 +27,6 @@
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
 
-	  
 	<beans:bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
