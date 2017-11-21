@@ -26,6 +26,10 @@ import com.tecsup.gestion.services.SecurityService;
 @Controller
 public class LoginController {
 
+	private static final String MODEL_CREDENTIAL = "credential";
+
+	private static final String KEY_LOGIN = "login";
+
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 	@Autowired
@@ -34,14 +38,14 @@ public class LoginController {
 	@GetMapping("/login")
 	public ModelAndView preLogin() {
 		Credential credential = new Credential();
-		return new ModelAndView("login", "credential", credential);
+		return new ModelAndView(KEY_LOGIN, MODEL_CREDENTIAL, credential);
 	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@PostMapping("/login")
-	public ModelAndView login(@ModelAttribute("credential")  @Valid Credential credential, BindingResult result, ModelMap model) {
+	public ModelAndView login(@ModelAttribute(MODEL_CREDENTIAL)  @Valid Credential credential, BindingResult result, ModelMap model) {
 
 		logger.info("login()");
 		logger.info(credential.toString());
@@ -50,7 +54,7 @@ public class LoginController {
 
 		if (result.hasErrors()) {
 			
-			modelAndView = new ModelAndView("login", "credential", credential);
+			modelAndView = new ModelAndView(KEY_LOGIN, MODEL_CREDENTIAL, credential);
 			
 		} else {
 			
@@ -59,15 +63,15 @@ public class LoginController {
 				logger.info("--" + emp.toString());
 				modelAndView = new ModelAndView("redirect:/admin/menu", "command", emp);
 			} catch (LoginException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 				model.addAttribute("message", "Usuario y/o clave incorrectos");
-				modelAndView = new ModelAndView("login", "credential", new Credential());
+				modelAndView = new ModelAndView(KEY_LOGIN, MODEL_CREDENTIAL, new Credential());
 			} catch (DAOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 				model.addAttribute("message", e.getMessage());
-				modelAndView = new ModelAndView("login", "credential", new Credential());
+				modelAndView = new ModelAndView(KEY_LOGIN, MODEL_CREDENTIAL, new Credential());
 			}
 			
 		}

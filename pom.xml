@@ -4,12 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tecsup</groupId>
 	<artifactId>gestion</artifactId>
-	<name>lab10SpringMVC</name>
+	<name>labSpringMVC-02</name>
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<!--   version>1.0.0-BUILD-SNAPSHOT</version-->
+	<version>1.0.0</version>
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.0.0.RELEASE</org.springframework-version>
+		<org.springframework-security-version>4.2.2.RELEASE</org.springframework-security-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -42,6 +44,25 @@
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+
+
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework-security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework-security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${org.springframework-security-version}</version>
+		</dependency>
+
 
 		<!-- JDBC MySQL -->
 		<dependency>

@@ -26,8 +26,10 @@
 								class="btn btn-primary"> Manager Employees</a>
 							</td>
 							<td>
-								<a href="#"
-								class="btn btn-primary"> Logout</a>
+								<form class="form-inline" action="<%=request.getContextPath()%>/j_spring_security_logout" method="post">
+							      <input type="submit" value="Log out"  class="btn btn-primary"/>
+							      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							    </form>
 							</td>
 						</tr>
 					</tbody>
