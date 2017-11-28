@@ -41,7 +41,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			//return null;
 
 		} catch (EmptyResultDataAccessException e) {
-			throw new EmptyResultException();
+			throw new EmptyResultException(e.getMessage());
 		} catch (Exception e) {
 			logger.info("Error: " + e.getMessage());
 			throw new DAOException(e.getMessage());
